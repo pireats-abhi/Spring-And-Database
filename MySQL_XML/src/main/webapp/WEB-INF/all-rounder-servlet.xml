@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
@@ -10,6 +11,7 @@
 	http://www.springframework.org/schema/context/spring-context.xsd ">
 
 	<context:annotation-config />
+	<mvc:annotation-driven />
 	<context:component-scan
 		base-package="org.ajgroup" />
 
@@ -17,6 +19,17 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/phonebook" />
+		<property name="username" value="root" />
+		<property name="password" value="2514" />
+	</bean>
+
+	<bean id="student" class="org.ajgroup.daoImpl">
+		<property name="dataSource" ref="dataSource" />
 	</bean>
 
 </beans>
