@@ -28,7 +28,7 @@
 		<property name="password" value="2514" />
 	</bean>
 
-	<bean id="student" class="org.ajgroup.daoImpl">
+	<bean id="studentInformation" class="org.ajgroup.db.DB">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
