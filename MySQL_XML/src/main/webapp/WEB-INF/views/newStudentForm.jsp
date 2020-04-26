@@ -10,8 +10,7 @@
 <body>
 	<div style="padding-left: 20px;">
 		<h4>Create/Edit Student Information</h4>
-		<form action="editStudent">
-			<input type="hidden" name="id" value="${s.id}">
+		<form action="addStudent">
 			<label>Name:</label><br> <input type="text" name="name"
 				value="${s.name}"><br> <label>Email:</label><br> <input
 				type="text" name="email" value="${s.email}"><br> <label>Age:</label><br>

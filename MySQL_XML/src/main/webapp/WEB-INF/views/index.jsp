@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,7 @@ table, th, td {
 <body>
 	<div style="text-align: center;">
 		<h2>Student Information</h2>
-		<a href="student">Create New Student</a>
+		<a href="crtstudent">Create New Student</a>
 	</div>
 	<br>
 	<table style="width: 100%;">
@@ -27,21 +28,15 @@ table, th, td {
 			<th>Sex</th>
 			<th>System</th>
 		</tr>
-		<tr>
-			<td>Abhijeet Das</td>
-			<td>ad@gmail.com</td>
-			<td>25</td>
-			<td>male</td>
-			<td><a href="#">Edit</a>&nbsp&nbsp<a href="#">Delete</a></td>
-		</tr>
-		<tr>
-			<td>Rajeeb Das</td>
-			<td>rd@gmail.com</td>
-			<td>28</td>
-			<td>male</td>
-			<td><a href="#">Edit</a>&nbsp&nbsp<a href="#">Delete</a></td>
-		</tr>
-		
+		<c:forEach items="${studs}" var="s">
+			<tr>
+				<td>${s.name}</td>
+				<td>${s.email}</td>
+				<td>${s.age}</td>
+				<td>${s.sex}</td>
+				<td><a href="student?id=${s.id}">Edit</a>&nbsp&nbsp<a href="dltStud?id=${s.id}">Delete</a></td>
+			</tr>
+		</c:forEach>
 	</table>
 </body>
 </html>
